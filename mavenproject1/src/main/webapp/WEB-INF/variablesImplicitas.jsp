@@ -8,7 +8,7 @@
         <h1>EL y variables implicitas</h1>
         <br/>
         <ul>
-            <li>Nombre de la aplicacion: ${pageContext.request.contextPath}</li>
+            <li>Nombre de la aplicacion: ${pageContext.request.contextPath}</li><-<!-- No reconoce esta funcion -->
         </ul>
     </body>
 </html>
