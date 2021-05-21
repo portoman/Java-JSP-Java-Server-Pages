@@ -21,9 +21,9 @@
                         </thead>
                         <tbody>
                             <!-- Iteramos cada elemento de la lista de clientes -->
-                            <c:forEach var="cliente" items="${clientes}">
+                            <c:forEach var="cliente" items="${clientes}" varStatus="status">
                                 <tr>
-                                    <td>${cliente.idCliente}</td>
+                                    <td>${status.count}</td>
                                     <td>${cliente.nombre} ${cliente.apellido}</td>
                                     <td><fmt:formatNumber value="${cliente.saldo}" type="currency"/></td>
                                     <td>
@@ -38,8 +38,33 @@
                     </table>
                 </div>
             </div>
+
+
+            <div class="col-md-3"><!--Inicio: Tarjetas para los totales-->
+                <div class="card text-center bg-danger text-white mb-3"><!--Inicio: Saldo total-->
+                    <div class="card-body">
+                        <h3>Saldo Total</h3>
+                        <h4 class="display-4">
+                            <fmt:formatNumber value="${saldoTotal}" type="currency"/>
+                        </h4>
+                    </div>
+                </div><!--Fin: Saldo total-->
+
+                <div class="card text-center bg-success text-white mb-3"><!--Inicio: Total clientes-->
+                    <div class="card-body">
+                        <h3>Total Clientes</h3>
+                        <h4 class="display-4">
+                            <i class="fas fa-users"></i>${totalClientes}
+                        </h4>
+                    </div>
+                </div><!--Final: Total clientes-->
+            </div><!--Fin: Tarjetas para los totales-->
+
         </div>
 
 
     </div>
 </section>
+
+<!-- Agregar cliente MODAL -->
+<jsp:include page="/WEB-INF/paginas/cliente/agregarCliente.jsp"/>
